@@ -3,6 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import connectDB from './config/mongodb.js';
 import connectCloudinary from './config/cloudinary.js';
+import router from './routes/userRoute.js';
 
 //app config
 const app = express();
@@ -18,6 +19,9 @@ app.use(cors());
 app.get("/", (req, res) => {
     res.send("API working...")
 })
+
+//routes
+app.use("/api/user", router);
 
 app.listen(port, ()=> {
     console.log(`Server is running on ${port}`)
