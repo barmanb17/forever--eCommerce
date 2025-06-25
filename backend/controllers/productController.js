@@ -73,8 +73,15 @@ const listProducts = async (req, res) => {
  }
 
  //function for single product view
- const singleProduct = (req, res) => {
-
+ const singleProduct =async (req, res) => {
+    try {
+        const {productId} = req.body
+        const product = await productModel.findById(productId)
+        res.json({success: true, product})
+    } catch (error) {
+                console.log(error)
+        res.json({success: false, message: error.message})  
+    }
  }
 
  export {addProduct, removeProduct, listProducts, singleProduct};
