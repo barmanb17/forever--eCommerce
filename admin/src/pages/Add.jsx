@@ -5,7 +5,7 @@ import { backendUrl } from '../App'
 import { toast } from 'react-toastify'
 
 
-//setting up
+
 const Add = ({token}) => {
 
   const [image1, setImage1] = useState(false)
